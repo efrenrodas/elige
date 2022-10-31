@@ -22,17 +22,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('listas',ListaController::class);
+    
+    Route::resource('cursos',CursoController::class);
+    
+    Route::resource('codigos',CodigoController::class);
+    
+    Route::resource('codigovotos',CodigovotoController::class);
+ });
 
-Route::resource('listas',ListaController::class);
 
-Route::resource('cursos',CursoController::class);
-
-Route::resource('codigos',CodigoController::class);
-
-Route::resource('codigovotos',CodigovotoController::class);
 
 Route::get('validate',[CodigoController::class,'validar'])->name('codigos.validate');
 
