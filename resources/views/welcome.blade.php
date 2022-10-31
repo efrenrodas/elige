@@ -21,11 +21,11 @@
         <title>Ingresa tu clave</title>
     </head>
 <body>
-    <div class="container">
+    <div class='sectionOne' class="container">
         
         <div class="row" >
             <div class="col-h100">
-                <div class="card text-center" style="margin-top: 20%;">
+                <div class="card text-center opacity-85" style="margin-top: 15%;">
                     <div class="card-header">
                       Votaciones - Unidad Educativa Dominicana
                     </div>
@@ -60,4 +60,25 @@
     </div>
     
 </body>
+<style>
+    body { 
+        background-image: linear-gradient(rgba(143, 25, 154, 1), rgba(200, 5, 158, 0.8)); 
+        opacity: 1; 
+        position: relative; 
+        overflow: scroll; 
+        background-size: cover; 
+    } 
+        .sectionOne { 
+            background-image: url(https://i.ibb.co/544HY3t/fondo.jpg); 
+            width: 100%; 
+            height: 100%; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-size: 100% auto; 
+            background-attachment: fixed; 
+        }
+
+
+</style>
 </html>

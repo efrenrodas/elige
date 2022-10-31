@@ -131,7 +131,7 @@ class CodigoController extends Controller
             // }
             #return response()->json($resul);
         }else{
-            #retornar codigo incorrecto
+          return view('404');
         }
        
         # code...
