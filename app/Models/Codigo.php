@@ -27,7 +27,7 @@ class Codigo extends Model
 		'id_curso' => 'required',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 50;
 
     /**
      * Attributes that should be mass-assignable.
