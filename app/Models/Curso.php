@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Lista
+ * Class Curso
  *
  * @property $id
- * @property $nombres
- * @property $imagen
- * @property $string
+ * @property $nombre
+ * @property $cantidad
+ * @property $estado
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Lista extends Model
+class Curso extends Model
 {
     
     static $rules = [
-		'nombres' => 'required',
+		'nombre' => 'required',
+		'cantidad' => 'required',
+		'estado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,13 +33,8 @@ class Lista extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombres','imagen','string'];
+    protected $fillable = ['nombre','cantidad','estado'];
 
-    public function codigovoto()
-    {
-      # code...
-      return $this->hasMany('App\Models\Codigovoto','id_lista','id');
-    }
 
 
 }

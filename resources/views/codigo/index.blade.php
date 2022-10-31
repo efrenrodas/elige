@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Lista
+    Codigo
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Lista') }}
+                                {{ __('Codigo') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('listas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('codigos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,28 +36,26 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombres</th>
-										<th>Imagen</th>
-										<th>Integrantes</th>
-                                        <th>Votos</th>
+										<th>Codigo</th>
+										<th>Estado</th>
+										<th>Curso</th>
+
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($listas as $lista)
+                                    @foreach ($codigos as $codigo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $lista->nombres }}</td>
-											<td><img class="rounded-circle img-fluid" width="30px" src="{{ asset('storage') . '/' .$lista->imagen }}" alt="" srcset=""></td>
+											<td>{{ $codigo->codigo }}</td>
+											<td>{{ $codigo->estado }}</td>
+											<td>{{ $codigo->curso->nombre }}</td>
 
-											{{-- <td>{{ $lista->imagen }}</td> --}}
-											<td>{{ $lista->string }}</td>
-                                            <td>{{$lista->codigovoto->count()}}</td>
                                             <td>
-                                                <form action="{{ route('listas.destroy',$lista->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('listas.show',$lista->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('listas.edit',$lista->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('codigos.destroy',$codigo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('codigos.show',$codigo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('codigos.edit',$codigo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -70,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $listas->links() !!}
+                {!! $codigos->links() !!}
             </div>
         </div>
     </div>

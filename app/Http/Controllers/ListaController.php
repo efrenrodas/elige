@@ -44,9 +44,14 @@ class ListaController extends Controller
     public function store(Request $request)
     {
         request()->validate(Lista::$rules);
+        $lista=$request->except('imagen');
+        if ($request->hasFile('imagen')) {
+            $lista['imagen']=$request->file('imagen')->store('imagesListas','public');
+        }
 
-        $lista = Lista::create($request->all());
-
+       # $lista = Lista::create($request->all());
+       #$course = Course::create($curso);
+       $liste=Lista::create($lista);
         return redirect()->route('listas.index')
             ->with('success', 'Lista created successfully.');
     }

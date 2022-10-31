@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CodigoController;
+use App\Http\Controllers\CodigovotoController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ListaController;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +27,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('listas',ListaController::class);
+
+Route::resource('cursos',CursoController::class);
+
+Route::resource('codigos',CodigoController::class);
+
+Route::resource('codigovotos',CodigovotoController::class);
+
+Route::get('validate',[CodigoController::class,'validar'])->name('codigos.validate');
+
+Route::post('votar',[CodigovotoController::class,'store'])->name('voto.realizar');
+
+Route::get('wel',function(){
+    return view('welcome');
+})->name('wel.ini');
