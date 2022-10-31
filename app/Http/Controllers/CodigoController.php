@@ -85,8 +85,8 @@ class CodigoController extends Controller
     public function edit($id)
     {
         $codigo = Codigo::find($id);
-
-        return view('codigo.edit', compact('codigo'));
+        $cursos=Curso::pluck('nombre','id');
+        return view('codigo.edit', compact('codigo','cursos'));
     }
 
     /**
