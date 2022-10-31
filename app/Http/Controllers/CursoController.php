@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Codigo;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -60,8 +61,8 @@ class CursoController extends Controller
     public function show($id)
     {
         $curso = Curso::find($id);
-
-        return view('curso.show', compact('curso'));
+        $codigos=Codigo::where('id_curso','=',$id)->get();
+        return view('curso.show', compact('curso','codigos'));
     }
 
     /**

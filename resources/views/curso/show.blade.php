@@ -34,6 +34,32 @@
                         </div>
 
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <table  class="table table-bordered border-primary table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>No</th>
+                                        
+										<th>Codigo</th>
+									
+                                        {{-- <th>Firma</th> --}}
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($codigos as $codigo)
+                                    <tr>
+                                        <td>{{ $loop->index }}</td>
+                                        
+                                        <td>{{ $codigo->codigo }}</td>
+                                       {{-- <td>{{'__________________'}}</td> --}}
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

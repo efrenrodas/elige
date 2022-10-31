@@ -48,7 +48,7 @@
                             {{ $codigo->estado }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Curso:</strong>
+                            <strong>Curso:</strong>
                             {{ $codigo->curso->nombre }}
                         </div>
                         @if ($codigo->estado>'1')
@@ -76,11 +76,11 @@
                         <div id="btnVotar" class="row row-cols-1 row-cols-md-3 g-4">
                             @if ($codigo->estado=='1')
                             @foreach ($listas as $lista)
-                            <div class="col">
-                                <div class="card h-100">
-                                  <img src="{{ asset('storage') . '/' .$lista->imagen }}" width="20%" class="card-img-top" alt="...">
+                            <div class="col-md-3">
+                                <div class="card">
+                                  <img src="{{ asset('storage') . '/' .$lista->imagen }}" width="20%" height="300px" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <h5 class="card-title">{{$lista->nombres}}</h5>
+                                    <strong><h5 class="card-title">{{$lista->nombres}}</h5></strong>
                                     <p class="card-text">{{$lista->string}}</p>
                                   </div>
                                   
