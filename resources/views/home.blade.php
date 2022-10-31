@@ -2,22 +2,33 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="{{route('listas.index')}}" role="button">Listas</a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
         </div>
+        <div class="col">
+            <a class="btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
+
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary" href="{{route('codigos.index')}}">Codigos</a>
+
+        </div>
+        <div class="col">
+            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Votos</a>
+
+        </div>
+        <div class="col">
+            <a class="btn btn-danger" href="{{route('home')}}">Inicio</a>
+
+        </div>
+        {{-- <a class="btn btn-warning" href="#">Warning</a>
+        <a class="btn btn-info" href="#">Info</a>
+        <a class="btn btn-light" href="#">Light</a>
+        <a class="btn btn-dark" href="#">Dark</a>
+
+        <a class="btn btn-link">Link</a> --}}
     </div>
 </div>
 @endsection
