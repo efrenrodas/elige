@@ -25,7 +25,7 @@
         
         <div class="row" >
             <div class="col-h100">
-                <div class="card text-center opacity-85" style="margin-top: 15%;">
+                <div class="card text-center opacity-75" style="margin-top: 15%;">
                     <div class="card-header">
                       Votaciones - Unidad Educativa Dominicana
                     </div>
@@ -69,7 +69,7 @@
         background-size: cover; 
     } 
         .sectionOne { 
-            background-image: url(https://i.ibb.co/544HY3t/fondo.jpg); 
+            background-image: url(https://i.ibb.co/mC2rJCX/fondo1.jpg); 
             width: 100%; 
             height: 100%; 
             background-size: cover; 
