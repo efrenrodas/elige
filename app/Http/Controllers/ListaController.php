@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Codigo;
 use App\Models\Lista;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,8 @@ class ListaController extends Controller
     public function index()
     {
         $listas = Lista::paginate();
-
-        return view('lista.index', compact('listas'))
+        $ausentes=Codigo::where('estado','=','1')->count();
+        return view('lista.index', compact('listas','ausentes'))
             ->with('i', (request()->input('page', 1) - 1) * $listas->perPage());
     }
 

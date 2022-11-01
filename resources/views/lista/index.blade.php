@@ -40,6 +40,7 @@
 										<th>Imagen</th>
 										<th>Integrantes</th>
                                         <th>Votos</th>
+                                      
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -54,6 +55,7 @@
 											{{-- <td>{{ $lista->imagen }}</td> --}}
 											<td>{{ $lista->string }}</td>
                                             <td>{{$lista->codigovoto->count()}}</td>
+                                           
                                             <td>
                                                 <form action="{{ route('listas.destroy',$lista->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('listas.show',$lista->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
@@ -67,6 +69,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="alert alert-primary" role="alert">
+                                Ausentes:{{$ausentes}}
+                              </div>
                         </div>
                     </div>
                 </div>
