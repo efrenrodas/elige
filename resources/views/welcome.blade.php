@@ -21,10 +21,13 @@
         <title>Ingresa tu clave</title>
     </head>
 <body>
-    <div class='sectionOne' class="container">
+    <div class="container-fluid">
         
         <div class="row" >
-            <div class="col-h100">
+         
+        
+            <div class="col-md-6 mx-auto">
+            <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;"> 
                 <div class="card text-center opacity-75" style="margin-top: 15%;">
                     <div class="card-header">
                       Elecciones - Instituto Tecnológico Universitario San Isidro
@@ -48,7 +51,7 @@
                         </div>
                         
                       </div>
-                      {{--      <a href="#" class="btn btn-primary">Votar</a> --}}
+                      {{--      <a href="#" class="btn btn-primary">Vota</a> --}}
                      
                     </div>
                     <div class="card-footer text-muted">
@@ -56,18 +59,28 @@
                     </div>
                 </div>
             </div>
+            </div>
+            
         </div>
+        
     </div>
     
 </body>
 <style>
-    body { 
-        background-image: linear-gradient(rgba(143, 25, 154, 1), rgba(200, 5, 158, 0.8)); 
-        opacity: 1; 
-        position: relative; 
-        overflow: scroll; 
-        background-size: cover; 
-    } 
+html, body {
+  height: 100vh; /* Asegura que el contenedor ocupe el 100% de la altura de la ventana */
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #87CEEB, #ADD8E6);
+  opacity: 1;
+  position: relative;
+  overflow: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
         .sectionOne { 
             /* background-image: url(https://i.ibb.co/mC2rJCX/fondo1.jpg);  */
             width: 100%; 
