@@ -27,7 +27,7 @@
             <div class="col-h100">
                 <div class="card text-center opacity-75" style="margin-top: 15%;">
                     <div class="card-header">
-                      Votaciones - Unidad Educativa Dominicana
+                      Elecciones - Instituto Tecnológico Universitario San Isidro
                     </div>
                     <div class="card-body">
                       <h5 class="card-title">Ingrese el codigo para hacer el voto</h5>
@@ -69,7 +69,7 @@
         background-size: cover; 
     } 
         .sectionOne { 
-            background-image: url(https://i.ibb.co/mC2rJCX/fondo1.jpg); 
+            /* background-image: url(https://i.ibb.co/mC2rJCX/fondo1.jpg);  */
             width: 100%; 
             height: 100%; 
             background-size: cover; 
