@@ -22,6 +22,7 @@
                             @include('curso.form')
 
                         </form>
+                       
                     </div>
                 </div>
             </div>

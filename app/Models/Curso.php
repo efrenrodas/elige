@@ -33,7 +33,7 @@ class Curso extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','cantidad','estado'];
+    protected $fillable = ['nombre','cantidad','estado','codigoExterno'];
 
 
 

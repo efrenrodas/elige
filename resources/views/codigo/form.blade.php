@@ -8,13 +8,17 @@
         </div> --}}
         <div class="form-group">
             {{ Form::label('estado') }}
-            {{ Form::text('estado', $codigo->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+            {{-- {{ Form::text('estado', $codigo->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }} --}}
+            <select class="form-control" name="estado" id="estado">
+                <option value="0">Inactivo</option>
+                <option selected value="1">Creado</option>
+            </select>
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('id_curso') }}
+            {{ Form::label('Grupo') }}
             {{-- {{ Form::text('id_curso', $codigo->id_curso, ['class' => 'form-control' . ($errors->has('id_curso') ? ' is-invalid' : ''), 'placeholder' => 'Id Curso']) }} --}}
-           {!! Form::select('id_curso', $cursos, $codigo->id_curso, ['class' => 'form-control' . ($errors->has('id_curso') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione el curso']) !!}
+           {!! Form::select('id_curso', $cursos, $codigo->id_curso, ['class' => 'form-control' . ($errors->has('id_curso') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione el grupo']) !!}
             {!! $errors->first('id_curso', '<div class="invalid-feedback">:message</div>') !!}
          
         </div>
