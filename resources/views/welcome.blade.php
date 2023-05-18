@@ -33,8 +33,8 @@
                       Elecciones - Instituto Tecnológico Universitario San Isidro
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Ingrese el codigo para hacer el voto</h5>
-                      <p class="card-text">ingrese el codigo de 5 digitos</p>
+                      <h5 class="card-title">Ingrese el código para hacer el voto</h5>
+                      <p class="card-text">ingrese el código de 5 digitos</p>
                       <div class="row">
                         <div class="col">
 
