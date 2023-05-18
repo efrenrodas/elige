@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Codigo') }}
+                                {{ __('Código') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('codigos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear') }}
                                 </a>
                               </div>
                         </div>
@@ -39,7 +39,7 @@
 										<th>Codigo</th>
 										<th>Estado</th>
 										<th>Curso</th>
-
+                                        <th>Estudiante</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -49,9 +49,26 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $codigo->codigo }}</td>
-											<td>{{ $codigo->estado }}</td>
+											<td>
+                                            @switch($codigo->estado)
+                                                @case(0)
+                                                    {{'Inactivo'}}
+                                                    @break
+                                                @case(1)
+                                                    {{'Creado'}}
+                                                    @break
+                                                @case(2)
+                                                    {{'Leido'}}
+                                                    @break
+                                                @case(3)
+                                                    {{'Usado'}}
+                                                    @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            </td>
 											<td>{{ $codigo->curso->nombre }}</td>
-
+                                            <td>{{$codigo->idEstudiante}}</td>
                                             <td>
                                                 <form action="{{ route('codigos.destroy',$codigo->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('codigos.show',$codigo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>

@@ -22,7 +22,7 @@ class Codigo extends Model
 {
     
     static $rules = [
-		'codigo' => 'required',
+		// 'codigo' => 'required',
 		'estado' => 'required',
 		'id_curso' => 'required',
     ];

@@ -5,6 +5,16 @@
 @endsection
 
 @section('content')
+<style type="text-css">
+  
+/* app.css | http://127.0.0.1:8000/css/app.css */
+
+.img-fluid {
+  /* max-width: 100%; */
+  max-width: 10%;
+}
+
+</style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -50,7 +60,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $lista->nombres }}</td>
-											<td><img class="rounded-circle img-fluid" width="30px" src="{{ asset('storage') . '/' .$lista->imagen }}" alt="" srcset=""></td>
+											<td><img class="img-thumbnail" 	width="304" height="236" src="{{ asset('storage') . '/' .$lista->imagen }}" alt="" srcset=""></td>
 
 											{{-- <td>{{ $lista->imagen }}</td> --}}
 											<td>{{ $lista->string }}</td>
