@@ -7,6 +7,7 @@ use App\Models\Curso;
 use App\Models\Lista;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use GuzzleHttp\Client;
 
 /**
  * Class CodigoController
@@ -47,15 +48,28 @@ class CodigoController extends Controller
      */
     public function store(Request $request)
     {
-      #  return response()->json($request);
+        
       #  request()->validate(Codigo::$rules);
+    
+       
+
         $idCurso=$request['id_curso'];
         $curso=Curso::find($idCurso);
-        
-        for ($i=1;$i<$curso->cantidad;$i++) {
-            $request['codigo']=Str::random(5);
 
-            $codigo = Codigo::create($request->all());
+        $client=new Client();
+        $respuesta=$client->get("https://sanisidro.edu.ec/api2/?op=codigos&idCarrera=$curso->codigoExterno");
+        $data = $respuesta->getBody()->getContents();
+        foreach (json_decode($data) as $codigo) {
+            # code...
+            $request['codigo']=Str::random(5);
+            $request['idEstudiante']=$codigo->IdEstudiante;
+
+            $code = Codigo::create($request->all());
+        }
+       
+
+        for ($i=1;$i<$curso->cantidad;$i++) {
+           
         }
       
 
@@ -135,5 +149,13 @@ class CodigoController extends Controller
         }
        
         # code...
+    }
+    public function codigos(Request $request)
+    {
+       $idEstudiante=$request['idEstudiante'];
+       $codigo=Codigo::where('idEstudiante','=',$idEstudiante)->first();
+       $codigo->estado='2';
+       $codigo->save();
+       return response()->json($codigo);
     }
 }
