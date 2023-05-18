@@ -51,7 +51,7 @@
                             <strong>Curso:</strong>
                             {{ $codigo->curso->nombre }}
                         </div>
-                        @if ($codigo->estado>'1')
+                        @if ($codigo->estado>'2')
                         <div id="votado1">
                             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                                 <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -74,7 +74,7 @@
                         
                         @endif
                         <div id="btnVotar" class="row row-cols-1 row-cols-md-3 g-4">
-                            @if ($codigo->estado=='1')
+                            @if ($codigo->estado=='1' or $codigo->estado=='2' )
                             @foreach ($listas as $lista)
                             <div class="col-md-3">
                                 <div class="card">
