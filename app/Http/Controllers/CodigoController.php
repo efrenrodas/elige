@@ -112,6 +112,7 @@ class CodigoController extends Controller
      */
     public function update(Request $request, Codigo $codigo)
     {
+     ///   return response()->json($request);
         request()->validate(Codigo::$rules);
 
         $codigo->update($request->all());

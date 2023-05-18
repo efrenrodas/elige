@@ -45,7 +45,7 @@
             {{-- {{ Form::text('estado', $curso->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }} --}}
             <select class="form-control" name="estado" id="estado">
                 <option value="0">Inactivo</option>
-                <option value="1">Activo</option>
+                <option selected value="1">Activo</option>
             </select>
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>

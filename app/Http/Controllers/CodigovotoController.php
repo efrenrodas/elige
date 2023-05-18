@@ -47,7 +47,7 @@ class CodigovotoController extends Controller
         request()->validate(Codigovoto::$rules);
         $id_cod=$request['id_codigo'];
         $codigo=Codigo::find($id_cod);
-        $codigo->estado='2';
+        $codigo->estado='3';//1 creado, 2 leido, 3 votado
         $codigo->save();
 
         $codigovoto = Codigovoto::create($request->all());

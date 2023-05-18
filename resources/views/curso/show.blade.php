@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Curso</span>
+                            <span class="card-title">Ver codigos</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('cursos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('cursos.index') }}"> Atras</a>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $curso->estado }}
+                            {{ $curso->estado=='1'?'activo':'Inactivo' }}
                         </div>
 
                     </div>
