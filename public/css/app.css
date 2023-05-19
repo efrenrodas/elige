@@ -10821,3 +10821,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.logo{
+    position: absolute;
+    max-width: 20%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

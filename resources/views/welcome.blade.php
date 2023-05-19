@@ -22,9 +22,9 @@
     </head>
 <body>
     <div class="container-fluid">
-        
+       
         <div class="row" >
-         
+          <img class="logo"  src="https://est2.sanisidro.edu.ec/logoblanco2.png" alt="">
         
             <div class="col-md-6 mx-auto">
             <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;"> 
@@ -73,7 +73,7 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(to bottom, #87CEEB, #ADD8E6);
+  background-image: linear-gradient(to bottom,  #ADD8E6,#0c76a0);
   opacity: 1;
   position: relative;
   overflow: scroll;
