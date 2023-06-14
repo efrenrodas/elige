@@ -20,7 +20,7 @@ class ListaController extends Controller
     public function index()
     {
         $listas = Lista::paginate();
-        $ausentes=Codigo::where('estado','=','1')->count();
+        $ausentes=Codigo::where('estado','=','1')->orwhere('estado','=','2')->count();
         return view('lista.index', compact('listas','ausentes'))
             ->with('i', (request()->input('page', 1) - 1) * $listas->perPage());
     }
