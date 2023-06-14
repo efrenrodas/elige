@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Codigovoto') }}
+                                {{ __('Resumen votos') }}
                             </span>
 
                              <div class="float-right">
@@ -36,8 +36,8 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Id Lista</th>
-										<th>Id Codigo</th>
+										<th>Lista</th>
+										<th>Votos</th>
 
                                         <th></th>
                                     </tr>
@@ -47,17 +47,17 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $codigovoto->id_lista }}</td>
+											<td>{{ $codigovoto->lista->nombres }}</td>
 											<td>{{ $codigovoto->id_codigo }}</td>
 
                                             <td>
-                                                <form action="{{ route('codigovotos.destroy',$codigovoto->id) }}" method="POST">
+                                                {{-- <form action="{{ route('codigovotos.destroy',$codigovoto->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('codigovotos.show',$codigovoto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('codigovotos.edit',$codigovoto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
