@@ -8,11 +8,11 @@
 
         </div>
         <div class="col">
-            <a class="btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
+            <a class="disabled btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
 
         </div>
         <div class="col">
-            <a class="btn btn-secondary" href="{{route('codigos.index')}}">Codigos</a>
+            <a class="btn btn-secondary disabled" href="{{route('codigos.index')}}">Codigos</a>
 
         </div>
         {{-- <div class="col">
