@@ -27,9 +27,9 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('listas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                {{-- <a  href="{{ route('listas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
-                                </a>
+                                </a> --}}
                               </div>
                         </div>
                     </div>
@@ -69,10 +69,10 @@
                                             <td>
                                                 <form action="{{ route('listas.destroy',$lista->id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('listas.show',$lista->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}
-                                                    <a class="btn btn-sm btn-success" href="{{ route('listas.edit',$lista->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    {{-- <a  class="btn btn-sm btn-success" href="{{ route('listas.edit',$lista->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> --}}
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" disabled class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    {{-- <button type="submit" disabled class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button> --}}
                                                 </form>
                                             </td>
                                         </tr>
