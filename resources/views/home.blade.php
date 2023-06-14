@@ -15,10 +15,10 @@
             <a class="btn btn-secondary" href="{{route('codigos.index')}}">Codigos</a>
 
         </div>
-        <div class="col">
-            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Votos</a>
+        {{-- <div class="col">
+            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Resumen</a>
 
-        </div>
+        </div> --}}
         <div class="col">
             <a class="btn btn-danger" href="{{route('home')}}">Inicio</a>
 

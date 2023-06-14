@@ -13,7 +13,7 @@
         <div class="form-group">
             {{Form::label('Elegir carrera')}}
             <select v-model="carreraSelected" class="form-control" @change="escuchaCambio">
-              {{-- <option value="0">Seleccione una opción</option> --}}
+              {{-- <option value="0">Seleccione una opción</option> --}} 
                 @foreach (json_decode($carr) as $carrera)
                     <option v-bind:value="{{$carrera->Id}}">{{$carrera->Titulo}}</option>
                     
