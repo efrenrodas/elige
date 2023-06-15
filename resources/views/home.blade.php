@@ -11,10 +11,18 @@
             <a class="disabled btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
 
         </div>
-        <div class="col">
+      @if (auth()->user()->rol=='admin')
+      <div class="col">
+        <a class="btn btn-secondary enabled" href="{{route('codigos.index')}}">Codigos</a>
+
+    </div> 
+      @endif
+        
+       
+        {{-- <div class="col">
             <a class="btn btn-secondary disabled" href="{{route('codigos.index')}}">Codigos</a>
 
-        </div>
+        </div> --}}
         {{-- <div class="col">
             <a class="btn btn-success"href="{{route('codigovotos.index')}}">Reporte</a>
 
