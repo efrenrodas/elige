@@ -22,10 +22,12 @@ class CodigoController extends Controller
      */
     public function index()
     {
-        $codigos = Codigo::paginate();
-
-        return view('codigo.index', compact('codigos'))
-            ->with('i', (request()->input('page', 1) - 1) * $codigos->perPage());
+         $codigos = Codigo::paginate();
+        $cursos=Curso::all();
+        // return view('codigo.index', compact('codigos'))
+        //     ->with('i', (request()->input('page', 1) - 1) * $codigos->perPage());
+      
+        return view('codigo.index',compact('cursos'));
     }
 
     /**

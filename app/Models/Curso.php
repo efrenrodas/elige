@@ -35,6 +35,11 @@ class Curso extends Model
      */
     protected $fillable = ['nombre','cantidad','estado','codigoExterno'];
 
+    public function codigo()
+    {
+      #  return $this->hasOne('App\Models\Curso', 'id', 'id_curso');
+      return $this->hasMany('App\Models\Codigo','id_curso','id');
+    }
 
 
 }

@@ -30,62 +30,31 @@
                     @endif
 
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
-										<th>Codigo</th>
-										<th>Estado</th>
-										<th>Curso</th>
-                                        <th>Estudiante</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($codigos as $codigo)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $codigo->codigo }}</td>
-											<td>
-                                            @switch($codigo->estado)
-                                                @case(0)
-                                                    {{'Inactivo'}}
-                                                    @break
-                                                @case(1)
-                                                    {{'Creado'}}
-                                                    @break
-                                                @case(2)
-                                                    {{'Leido'}}
-                                                    @break
-                                                @case(3)
-                                                    {{'Usado'}}
-                                                    @break
-                                                @default
-                                                    
-                                            @endswitch
-                                            </td>
-											<td>{{ $codigo->curso->nombre }}</td>
-                                            <td>{{$codigo->idEstudiante}}</td>
-                                            <td>
-                                                <form action="{{ route('codigos.destroy',$codigo->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('codigos.show',$codigo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('codigos.edit',$codigo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Curso</th>
+                                <th scope="col">Codigos</th>
+                              
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($cursos as $curso)
+                                <tr>
+                                    <th scope="row">{{$loop->index+1}}</th>
+                                    <td>{{$curso->nombre}}</td>
+                                    <td>{{$curso->codigo->count()}}</td>
+                                   
+                                  </tr>
+                                @endforeach
+                              
+                              
+                            </tbody>
+                          </table>
                     </div>
                 </div>
-                {!! $codigos->links() !!}
+                {{-- {!! $codigos->links() !!} --}}
             </div>
         </div>
     </div>
