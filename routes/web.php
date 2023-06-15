@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('codigos',CodigoController::class);
     
     Route::resource('codigovotos',CodigovotoController::class);
+
+    Route::get('cierrejunta',[CodigovotoController::class,'cierreJunta'])->name('junta.cierre');
  });
 
 

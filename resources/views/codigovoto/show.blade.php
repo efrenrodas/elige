@@ -11,23 +11,37 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Codigovoto</span>
+                            <span class="card-title"> Reporte con corte: </span>
+                            <strong>{{$horario}}</strong>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('codigovotos.index') }}"> Back</a>
-                        </div>
+                        {{-- <div class="float-right">
+                            <a class="btn btn-primary" href="{{ route('home') }}"> Atras</a>
+                        </div> --}}
                     </div>
 
-                    <div class="card-body">
+                    <div  class="card-body">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Lista</th>
+                                <th scope="col">Votos</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($listas as $lista)
+                                <tr>
+                                    <th scope="row">{{$loop->index+1}}</th>
+                                    <td>{{$lista->nombres}}</td>
+                                    <td>{{$lista->votos}}</td>
+                                  
+                                  </tr> 
+                                @endforeach
+                             
+                              
+                            </tbody>
+                          </table>
                         
-                        <div class="form-group">
-                            <strong>Id Lista:</strong>
-                            {{ $codigovoto->id_lista }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Codigo:</strong>
-                            {{ $codigovoto->id_codigo }}
-                        </div>
 
                     </div>
                 </div>
