@@ -55,7 +55,7 @@
                      
                     </div>
                     <div class="card-footer text-muted">
-                      {{date('Y-m-d')}}
+                      {{date('Y-m-d H:i:s')}}
                     </div>
                 </div>
             </div>

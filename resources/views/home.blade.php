@@ -16,9 +16,14 @@
 
         </div>
         {{-- <div class="col">
-            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Resumen</a>
+            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Reporte</a>
 
         </div> --}}
+        <div class="col">
+            <a class="btn btn-success"href="{{route('junta.cierre')}}">Reporte</a>
+
+        </div>
+
         <div class="col">
             <a class="btn btn-danger" href="{{route('home')}}">Inicio</a>
 
