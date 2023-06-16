@@ -47,6 +47,9 @@ Route::get('validate',[CodigoController::class,'validar'])->name('codigos.valida
 
 Route::post('votar',[CodigovotoController::class,'store'])->name('voto.realizar');
 
+Route::get('voto2',function () {
+    return view('welcome2');
+})->name('wel.2');
 Route::get('wel',function(){
     return view('welcome');
 })->name('wel.ini');
