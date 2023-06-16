@@ -140,7 +140,7 @@ class CodigovotoController extends Controller
                 foreach ($listas as $lista) {
                     $lista['votos']=$lista->codigovoto->count();
                 }
-                $horario="2023-06-16 08:00:00 - 2023-06-17 09:00:00";  
+                $horario="GENERAL";  
             break;
         
         default:

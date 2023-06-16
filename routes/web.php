@@ -31,6 +31,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('cursos',CursoController::class);
     
     Route::resource('codigos',CodigoController::class);
+
+    Route::get('codigosc',[CodigoController::class,'crear'])->name('codigos.crear');
+
+    Route::post('codigosg',[CodigoController::class,'guardar'])->name('codigos.guardar');
     
     Route::resource('codigovotos',CodigovotoController::class);
 
