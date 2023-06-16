@@ -16,6 +16,10 @@
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('cursos.index') }}"> Atras</a>
                         </div>
+                        &nbsp;
+                        <div class="float-right">
+                            <a class="btn btn-info" href="{{ route('codigos.crear',['id'=>$curso->id]) }}"> Crear</a>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -40,10 +44,10 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+                                        <th>Esdudiante</th>
 										<th>Codigo</th>
-									
-                                        {{-- <th>Firma</th> --}}
+                                        <th>Estado</th>
+                                        <th>Acción</th>
                                         
                                     </tr>
                                 </thead>
@@ -51,9 +55,27 @@
                                     @foreach ($codigos as $codigo)
                                     <tr>
                                         <td>{{ $loop->index }}</td>
-                                        
+                                        <td>{{$codigo->idEstudiante}}</td>
                                         <td>{{ $codigo->codigo }}</td>
-                                       {{-- <td>{{'__________________'}}</td> --}}
+                                        <td>@switch($codigo->estado)
+                                            @case(0)
+                                                Inactivo
+                                                @break
+                                            @case(1)
+                                                Creado
+                                                @break
+                                                @case(2)
+                                                Visto
+                                                @break
+                                                @case(3)
+                                                Usado
+                                                @break
+                                            @default
+                                                
+                                        @endswitch</td>
+                                       <td>
+                                        <a href="{{route('codigos.show',$codigo->id)}}">Editar</a>
+                                       </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

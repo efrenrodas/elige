@@ -114,13 +114,13 @@ class CodigoController extends Controller
      */
     public function update(Request $request, Codigo $codigo)
     {
-     ///   return response()->json($request);
-        request()->validate(Codigo::$rules);
+       
+        //request()->validate(Codigo::$rules);
 
         $codigo->update($request->all());
-
-        return redirect()->route('codigos.index')
-            ->with('success', 'Codigo updated successfully');
+       # return response()->json($codigo);
+        return redirect()->route('cursos.index')
+            ->with('success', 'Codigo actualizado correctamente');
     }
 
     /**
@@ -160,5 +160,20 @@ class CodigoController extends Controller
        $codigo->estado='2';
        $codigo->save();
        return response()->json($codigo);
+    }
+    public function crear(Request $request){
+        //return response()->json($request);
+        $id=$request['id'];
+        return view('codigo.crear',compact('id'));
+    }
+    public function guardar(Request $request){
+       # return response()->json($request);
+       $codigo=new Codigo();
+       $codigo->codigo=$request->codigo;
+       $codigo->estado="1";
+       $codigo->id_curso=$request->idCurso;
+       $codigo->save();
+       
+        return redirect()->route('cursos.show',$request->idCurso);
     }
 }

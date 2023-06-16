@@ -45,7 +45,22 @@
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $codigo->estado }}
+                            @switch($codigo->estado)
+                                            @case(0)
+                                                Inactivo
+                                                @break
+                                            @case(1)
+                                                Creado
+                                                @break
+                                                @case(2)
+                                                Visto
+                                                @break
+                                                @case(3)
+                                                Usado
+                                                @break
+                                            @default
+                                                
+                                        @endswitch
                         </div>
                         <div class="form-group">
                             <strong>Curso:</strong>

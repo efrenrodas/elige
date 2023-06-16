@@ -45,7 +45,7 @@
                                     <th scope="row">{{$loop->index+1}}</th>
                                     <td>{{$curso->nombre}}</td>
                                     <td>{{$curso->codigo->count()}}</td>
-                                   
+                                
                                   </tr>
                                 @endforeach
                               

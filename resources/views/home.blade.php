@@ -7,13 +7,14 @@
             <a class="btn btn-primary" href="{{route('listas.index')}}" role="button">Listas</a>
 
         </div>
-        <div class="col">
-            <a class="disabled btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
-
-        </div>
+        
       @if (auth()->user()->rol=='admin')
+        <div class="col">
+            <a class="btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
+        </div>
+
       <div class="col">
-        <a class="btn btn-secondary enabled" href="{{route('codigos.index')}}">Codigos</a>
+        <a class="btn btn-secondary enabled" href="{{route('codigos.index')}}">Codigos por carreras</a>
 
     </div> 
       @endif
