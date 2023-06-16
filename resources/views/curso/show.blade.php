@@ -55,7 +55,7 @@
                                     @foreach ($codigos as $codigo)
                                     <tr>
                                         <td>{{ $loop->index }}</td>
-                                        <td>{{$codigo->idEstudiante}}</td>
+                                        <td>{{$codigo->nombres}}</td>
                                         <td>{{ $codigo->codigo }}</td>
                                         <td>@switch($codigo->estado)
                                             @case(0)

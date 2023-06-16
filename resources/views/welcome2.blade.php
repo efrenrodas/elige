@@ -41,9 +41,9 @@
                         </div>
                         <div class="col">
                             <form action="{{route('codigos.validate')}}" method="get">
-                                {{-- <input type="text" class="form-control" name="codigo" id="codigo"> --}}
+                                <input type="text" class="form-control" name="codigo" id="codigo">
                            
-                                {{-- <input class="btn btn-lg btn-primary" style="margin-top: 15px;" type="submit" value="Votar"> --}}
+                                <input class="btn btn-lg btn-primary" style="margin-top: 15px;" type="submit" value="Votar">
                             </form>
                         </div>
                         <div class="col">
