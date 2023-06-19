@@ -157,7 +157,7 @@ class CodigoController extends Controller
     {
        $idEstudiante=$request['idEstudiante'];
        $codigo=Codigo::where('idEstudiante','=',$idEstudiante)->first();
-       $codigo->estado='2';
+      // $codigo->estado='2';
        $codigo->save();
        return response()->json($codigo);
     }
