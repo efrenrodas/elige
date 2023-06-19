@@ -71,7 +71,7 @@
                                                 Usado
                                                 @break
                                             @default
-                                                
+                                             
                                         @endswitch</td>
                                        <td>
                                         <a href="{{route('codigos.show',$codigo->id)}}">Editar</a>
