@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Codigo;
 use App\Models\Codigovoto;
-use App\Models\Lista;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CodigovotoController
@@ -49,7 +47,7 @@ class CodigovotoController extends Controller
         request()->validate(Codigovoto::$rules);
         $id_cod=$request['id_codigo'];
         $codigo=Codigo::find($id_cod);
-        $codigo->estado='3';//1 creado, 2 leido, 3 votado
+        $codigo->estado='2';
         $codigo->save();
 
         $codigovoto = Codigovoto::create($request->all());
@@ -114,43 +112,4 @@ class CodigovotoController extends Controller
         return redirect()->route('codigovotos.index')
             ->with('success', 'Codigovoto deleted successfully');
     }
-   public function cierreJunta() {
-    $user=Auth()->user();
-    $listas=Lista::all();
-    switch ($user->rol) {
-        case 'diurna':
-            foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-16 09:00:00')->where('created_at','<','2023-06-16 13:00:00')->count();
-            }
-            $horario="2023-06-16 09:00:00 - 2023-06-16 13:00:00";
-            break;
-        case 'nocturna':
-            foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-16 18:00:00')->where('created_at','<','2023-06-16 20:30:00')->count();
-            }
-            $horario="2023-06-16 18:00:00 - 2023-06-16 20:30:00";
-            break;
-        case 'sabado':
-            foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-17 08:00:00')->where('created_at','<','2023-06-17 09:00:00')->count();
-            }
-            $horario="2023-06-17 08:00:00 - 2023-06-17 09:00:00";
-            break;
-        case 'admin':
-                foreach ($listas as $lista) {
-                    $lista['votos']=$lista->codigovoto->count();
-                }
-                $horario="GENERAL";  
-            break;
-        
-        default:
-            // foreach ($listas as $lista) {
-            //     $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-14 09:00:00')->where('created_at','<','2023-06-14 13:00:00')->count();
-            // }
-
-            break;
-    }
-  #  return response()->json($listas);
-  return view('codigovoto.show',compact('listas','horario'));
-   }
 }

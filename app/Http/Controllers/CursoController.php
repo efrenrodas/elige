@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Codigo;
+use App\Models\Codigovoto;
 use App\Models\Curso;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 
 /**
  * Class CursoController
@@ -33,13 +33,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        $client = new Client();
-        $response=$client->get('https://sanisidro.edu.ec/api2/?op=carreras');
-        $carr=$response->getBody()->getContents();
         $curso = new Curso();
-       # return response()->json($carreras);
-     //  $carreras=json_decode($carr,true);
-        return view('curso.create', compact('curso','carr'));
+        return view('curso.create', compact('curso'));
     }
 
     /**
@@ -68,6 +63,9 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
         $codigos=Codigo::where('id_curso','=',$id)->get();
+       // $VotosCurso=Codigovoto
+       
+     //   return response()->json($VotosCurso,'200');
         return view('curso.show', compact('curso','codigos'));
     }
 
@@ -79,13 +77,9 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        $client = new Client();
-        $response=$client->get('https://sanisidro.edu.ec/api2/?op=carreras');
-        $carr=$response->getBody()->getContents();
-
         $curso = Curso::find($id);
 
-        return view('curso.edit', compact('curso','carr'));
+        return view('curso.edit', compact('curso'));
     }
 
     /**

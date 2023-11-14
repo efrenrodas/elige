@@ -31,14 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('cursos',CursoController::class);
     
     Route::resource('codigos',CodigoController::class);
-
-    Route::get('codigosc',[CodigoController::class,'crear'])->name('codigos.crear');
-
-    Route::post('codigosg',[CodigoController::class,'guardar'])->name('codigos.guardar');
     
     Route::resource('codigovotos',CodigovotoController::class);
-
-    Route::get('cierrejunta',[CodigovotoController::class,'cierreJunta'])->name('junta.cierre');
  });
 
 
@@ -47,9 +41,6 @@ Route::get('validate',[CodigoController::class,'validar'])->name('codigos.valida
 
 Route::post('votar',[CodigovotoController::class,'store'])->name('voto.realizar');
 
-Route::get('voto2',function () {
-    return view('welcome2');
-})->name('wel.2');
 Route::get('wel',function(){
     return view('welcome');
 })->name('wel.ini');

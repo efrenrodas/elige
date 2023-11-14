@@ -11,14 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Ver codigos</span>
+                            <span class="card-title">Ver Curso</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('cursos.index') }}"> Atras</a>
-                        </div>
-                        &nbsp;
-                        <div class="float-right">
-                            <a class="btn btn-info" href="{{ route('codigos.crear',['id'=>$curso->id]) }}"> Crear</a>
                         </div>
                     </div>
 
@@ -34,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $curso->estado=='1'?'activo':'Inactivo' }}
+                            {{ $curso->estado }}
                         </div>
 
                     </div>
@@ -44,43 +40,52 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        <th>Esdudiante</th>
+                                        
 										<th>Codigo</th>
                                         <th>Estado</th>
-                                        <th>Acción</th>
+                                        {{-- <th>Firma</th> --}}
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($codigos as $codigo)
                                     <tr>
-                                        <td>{{ $loop->index }}</td>
-                                        <td>{{$codigo->nombres}}</td>
+                                        <td>{{ $loop->index+1 }}</td>
+                                        
                                         <td>{{ $codigo->codigo }}</td>
-                                        <td>@switch($codigo->estado)
-                                            @case(0)
-                                                Inactivo
-                                                @break
-                                            @case(1)
-                                                Creado
-                                                @break
-                                                @case(2)
-                                                Visto
-                                                @break
-                                                @case(3)
-                                                Usado
-                                                @break
-                                            @default
-                                             
-                                        @endswitch</td>
-                                       <td>
-                                        <a href="{{route('codigos.show',$codigo->id)}}">Editar</a>
-                                       </td>
+                                       {{-- <td>{{'__________________'}}</td> --}}
+                                        <td>{{ $codigo->estado==1?'Creado':'Usado' }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <div class="float-left">
+                            <span class="card-title">Votos por curso</span>
+                        </div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-light">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Lista</td>
+                                    <td>Votos</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Lista</td>
+                                    <td>Votos</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

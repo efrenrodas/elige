@@ -7,32 +7,18 @@
             <a class="btn btn-primary" href="{{route('listas.index')}}" role="button">Listas</a>
 
         </div>
-        
-      @if (auth()->user()->rol=='admin')
         <div class="col">
             <a class="btn btn-primary" href="{{route('cursos.index')}}"  >Cursos</a>
+
         </div>
-
-      <div class="col">
-        <a class="btn btn-secondary enabled" href="{{route('codigos.index')}}">Codigos por carreras</a>
-
-    </div> 
-      @endif
-        
-       
-        {{-- <div class="col">
-            <a class="btn btn-secondary disabled" href="{{route('codigos.index')}}">Codigos</a>
-
-        </div> --}}
-        {{-- <div class="col">
-            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Reporte</a>
-
-        </div> --}}
         <div class="col">
-            <a class="btn btn-success"href="{{route('junta.cierre')}}">Reporte</a>
+            <a class="btn btn-secondary" href="{{route('codigos.index')}}">Codigos</a>
 
         </div>
+        <div class="col">
+            <a class="btn btn-success"href="{{route('codigovotos.index')}}">Votos</a>
 
+        </div>
         <div class="col">
             <a class="btn btn-danger" href="{{route('home')}}">Inicio</a>
 
