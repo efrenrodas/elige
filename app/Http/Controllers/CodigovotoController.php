@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Codigo;
 use App\Models\Codigovoto;
+use App\Models\Lista;
 use Illuminate\Http\Request;
 
 /**

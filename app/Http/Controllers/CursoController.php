@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Codigo;
 use App\Models\Codigovoto;
 use App\Models\Curso;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 /**
