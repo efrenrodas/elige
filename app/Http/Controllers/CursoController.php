@@ -34,7 +34,7 @@ class CursoController extends Controller
     public function create()
     {
         $client = new Client();
-        $response=$client->get('https://sanisidro.edu.ec/api2/?op=carreras');
+        $response=$client->get('https://api.sanisidro.edu.ec/api2/?op=carreras');
         $carr=$response->getBody()->getContents();
         $curso = new Curso();
        # return response()->json($carreras);
@@ -80,7 +80,7 @@ class CursoController extends Controller
     public function edit($id)
     {
         $client = new Client();
-        $response=$client->get('https://sanisidro.edu.ec/api2/?op=carreras');
+        $response=$client->get('https://api.sanisidro.edu.ec/api2/?op=carreras');
         $carr=$response->getBody()->getContents();
 
         $curso = Curso::find($id);

@@ -20,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Auth::routes(['register'=>false]);
+Auth::routes(['register'=>true]);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('listas',ListaController::class);
+    //Route::get('/listas',[ListaController::class,'index'])->name('listas');
     
     Route::resource('cursos',CursoController::class);
     

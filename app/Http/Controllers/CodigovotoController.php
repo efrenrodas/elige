@@ -49,10 +49,14 @@ class CodigovotoController extends Controller
         request()->validate(Codigovoto::$rules);
         $id_cod=$request['id_codigo'];
         $codigo=Codigo::find($id_cod);
+        if ($codigo->estado<3) {
+            $codigovoto = Codigovoto::create($request->all()); 
+        }
+        
         $codigo->estado='3';//1 creado, 2 leido, 3 votado
         $codigo->save();
 
-        $codigovoto = Codigovoto::create($request->all());
+      
 
         // return redirect()->route('codigovotos.index')
         //     ->with('success', 'Codigovoto created successfully.');
@@ -144,10 +148,10 @@ class CodigovotoController extends Controller
             break;
         
         default:
-            // foreach ($listas as $lista) {
-            //     $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-14 09:00:00')->where('created_at','<','2023-06-14 13:00:00')->count();
-            // }
-
+            foreach ($listas as $lista) {
+                $lista['votos']=$lista->codigovoto->count();
+            }
+            $horario='todos';
             break;
     }
   #  return response()->json($listas);

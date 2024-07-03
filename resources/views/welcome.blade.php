@@ -33,7 +33,7 @@
                       Elecciones - Instituto Tecnológico Universitario San Isidro
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Ingrese el código para hacer el voto</h5>
+                      <h5 class="card-title">Ingrese el código para realizar el voto</h5>
                       <p class="card-text">ingrese el código de 5 digitos</p>
                       <div class="row">
                         <div class="col">
@@ -41,9 +41,9 @@
                         </div>
                         <div class="col">
                             <form action="{{route('codigos.validate')}}" method="get">
-                                {{-- <input type="text" class="form-control" name="codigo" id="codigo"> --}}
+                                <input type="text" class="form-control" name="codigo" id="codigo">
                            
-                                {{-- <input class="btn btn-lg btn-primary" style="margin-top: 15px;" type="submit" value="Votar"> --}}
+                                <input class="btn btn-lg btn-primary" style="margin-top: 15px;" type="submit" value="Votar">
                             </form>
                         </div>
                         <div class="col">

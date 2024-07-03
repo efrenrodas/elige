@@ -59,7 +59,7 @@ class CodigoController extends Controller
         $curso=Curso::find($idCurso);
 
         $client=new Client();
-        $respuesta=$client->get("https://sanisidro.edu.ec/api2/?op=codigos&idCarrera=$curso->codigoExterno");
+        $respuesta=$client->get("https://api.sanisidro.edu.ec/api2/?op=codigos&idCarrera=$curso->codigoExterno");
         $data = $respuesta->getBody()->getContents();
         foreach (json_decode($data) as $codigo) {
             # code...

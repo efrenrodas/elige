@@ -33,7 +33,7 @@
                             <span class="card-title">Realizar votación</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{route('wel.2')}}"> Salir</a>
+                            <a class="btn btn-primary" href="{{route('welcome')}}"> Salir</a>
                         </div>
                     </div>
 

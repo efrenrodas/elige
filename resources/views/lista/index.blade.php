@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('template_title')
     Lista
@@ -27,9 +27,9 @@
                             </span>
 
                              <div class="float-right">
-                                {{-- <a  href="{{ route('listas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a> --}}
+                                <a  href="{{ route('listas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Nueva') }}
+                                </a>
                               </div>
                         </div>
                     </div>
