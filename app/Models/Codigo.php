@@ -22,7 +22,7 @@ class Codigo extends Model
 {
     
     static $rules = [
-		// 'codigo' => 'required',
+		'codigo' => 'required',
 		'estado' => 'required',
 		'id_curso' => 'required',
     ];
@@ -34,7 +34,7 @@ class Codigo extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo','estado','id_curso','idEstudiante'];
+    protected $fillable = ['codigo','estado','id_curso'];
 
 
     /**
@@ -44,6 +44,9 @@ class Codigo extends Model
     {
         return $this->hasOne('App\Models\Curso', 'id', 'id_curso');
     }
-    
+    public function codigovotos()
+    {
+        return $this->hasMany('App\Models\Codigovoto', 'id_codigo', 'id');
+    }
 
 }

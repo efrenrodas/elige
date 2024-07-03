@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Codigo;
-use App\Models\Codigovoto;
 use App\Models\Lista;
 use Illuminate\Http\Request;
 
@@ -14,15 +13,14 @@ use Illuminate\Http\Request;
 class ListaController extends Controller
 {
     /**
-     * Display a listing of the resource. 
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $listas = Lista::paginate();
-        $ausentes=Codigo::count()-Codigovoto::count();
-
+        $ausentes=Codigo::where('estado','=','1')->count();
         return view('lista.index', compact('listas','ausentes'))
             ->with('i', (request()->input('page', 1) - 1) * $listas->perPage());
     }

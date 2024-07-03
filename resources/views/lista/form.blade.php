@@ -2,7 +2,7 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('nombre') }}
+            {{ Form::label('nombres') }}
             {{ Form::text('nombres', $lista->nombres, ['class' => 'form-control' . ($errors->has('nombres') ? ' is-invalid' : ''), 'placeholder' => 'Nombres']) }}
             {!! $errors->first('nombres', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('Integrantes') }}
+            {{ Form::label('string') }}
             {{ Form::text('string', $lista->string, ['class' => 'form-control' . ($errors->has('string') ? ' is-invalid' : ''), 'placeholder' => 'String']) }}
             {!! $errors->first('string', '<div class="invalid-feedback">:message</div>') !!}
         </div>

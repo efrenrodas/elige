@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Código') }}
+                                {{ __('Codigo') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('codigos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear') }}
+                                  {{ __('Create New') }}
                                 </a>
                               </div>
                         </div>
@@ -30,31 +30,45 @@
                     @endif
 
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">Curso</th>
-                                <th scope="col">Codigos</th>
-                              
-                              </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cursos as $curso)
-                                <tr>
-                                    <th scope="row">{{$loop->index+1}}</th>
-                                    <td>{{$curso->nombre}}</td>
-                                    <td>{{$curso->codigo->count()}}</td>
-                                
-                                  </tr>
-                                @endforeach
-                              
-                              
-                            </tbody>
-                          </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>No</th>
+                                        
+										<th>Codigo</th>
+										<th>Estado</th>
+										<th>Curso</th>
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($codigos as $codigo)
+                                        <tr>
+                                            <td>{{ ++$i }}</td>
+                                            
+											<td>{{ $codigo->codigo }}</td>
+											<td>{{ $codigo->estado==1?'Creado':'Usado' }}</td>
+											<td>{{ $codigo->curso->nombre }}</td>
+
+                                            <td>
+                                                <form action="{{ route('codigos.destroy',$codigo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('codigos.show',$codigo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('codigos.edit',$codigo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                {{-- {!! $codigos->links() !!} --}}
+                {!! $codigos->links() !!}
             </div>
         </div>
     </div>

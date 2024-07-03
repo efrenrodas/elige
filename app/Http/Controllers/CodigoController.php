@@ -7,7 +7,6 @@ use App\Models\Curso;
 use App\Models\Lista;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use GuzzleHttp\Client;
 
 /**
  * Class CodigoController
@@ -22,12 +21,10 @@ class CodigoController extends Controller
      */
     public function index()
     {
-         $codigos = Codigo::paginate();
-        $cursos=Curso::all();
-        // return view('codigo.index', compact('codigos'))
-        //     ->with('i', (request()->input('page', 1) - 1) * $codigos->perPage());
-      
-        return view('codigo.index',compact('cursos'));
+        $codigos = Codigo::paginate();
+
+        return view('codigo.index', compact('codigos'))
+            ->with('i', (request()->input('page', 1) - 1) * $codigos->perPage());
     }
 
     /**
@@ -50,11 +47,8 @@ class CodigoController extends Controller
      */
     public function store(Request $request)
     {
-        
+      #  return response()->json($request);
       #  request()->validate(Codigo::$rules);
-    
-       
-
         $idCurso=$request['id_curso'];
         $curso=Curso::find($idCurso);
 
@@ -64,14 +58,8 @@ class CodigoController extends Controller
         foreach (json_decode($data) as $codigo) {
             # code...
             $request['codigo']=Str::random(5);
-            $request['idEstudiante']=$codigo->IdEstudiante;
 
-            $code = Codigo::create($request->all());
-        }
-       
-
-        for ($i=1;$i<$curso->cantidad;$i++) {
-           
+            $codigo = Codigo::create($request->all());
         }
       
 
@@ -114,13 +102,12 @@ class CodigoController extends Controller
      */
     public function update(Request $request, Codigo $codigo)
     {
-       
-        //request()->validate(Codigo::$rules);
+        request()->validate(Codigo::$rules);
 
         $codigo->update($request->all());
-       # return response()->json($codigo);
-        return redirect()->route('cursos.index')
-            ->with('success', 'Codigo actualizado correctamente');
+
+        return redirect()->route('codigos.index')
+            ->with('success', 'Codigo updated successfully');
     }
 
     /**
@@ -152,28 +139,5 @@ class CodigoController extends Controller
         }
        
         # code...
-    }
-    public function codigos(Request $request)
-    {
-       $idEstudiante=$request['idEstudiante'];
-       $codigo=Codigo::where('idEstudiante','=',$idEstudiante)->first();
-      // $codigo->estado='2';
-       $codigo->save();
-       return response()->json($codigo);
-    }
-    public function crear(Request $request){
-        //return response()->json($request);
-        $id=$request['id'];
-        return view('codigo.crear',compact('id'));
-    }
-    public function guardar(Request $request){
-       # return response()->json($request);
-       $codigo=new Codigo();
-       $codigo->codigo=$request->codigo;
-       $codigo->estado="1";
-       $codigo->id_curso=$request->idCurso;
-       $codigo->save();
-       
-        return redirect()->route('cursos.show',$request->idCurso);
     }
 }

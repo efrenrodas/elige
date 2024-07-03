@@ -5,16 +5,6 @@
 @endsection
 
 @section('content')
-<style type="text-css">
-  
-/* app.css | http://127.0.0.1:8000/css/app.css */
-
-.img-fluid {
-  /* max-width: 100%; */
-  max-width: 10%;
-}
-
-</style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -60,7 +50,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $lista->nombres }}</td>
-											<td><img class="img-thumbnail" 	width="304" height="236" src="{{ asset('storage') . '/' .$lista->imagen }}" alt="" srcset=""></td>
+											<td><img class="rounded-circle img-fluid" width="30px" src="{{ asset('storage') . '/' .$lista->imagen }}" alt="" srcset=""></td>
 
 											{{-- <td>{{ $lista->imagen }}</td> --}}
 											<td>{{ $lista->string }}</td>
@@ -68,11 +58,11 @@
                                            
                                             <td>
                                                 <form action="{{ route('listas.destroy',$lista->id) }}" method="POST">
-                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('listas.show',$lista->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}
-                                                    {{-- <a  class="btn btn-sm btn-success" href="{{ route('listas.edit',$lista->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> --}}
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('listas.show',$lista->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('listas.edit',$lista->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    {{-- <button type="submit" disabled class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button> --}}
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 
 @section('template_title')
-    Crear Lista
+    Create Lista
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Crear Lista</span>
+                        <span class="card-title">Create Lista</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('listas.store') }}"  role="form" enctype="multipart/form-data">
