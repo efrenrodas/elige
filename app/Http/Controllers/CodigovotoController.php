@@ -124,21 +124,21 @@ class CodigovotoController extends Controller
     switch ($user->rol) {
         case 'diurna':
             foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-16 09:00:00')->where('created_at','<','2023-06-16 13:00:00')->count();
+                $lista['votos']=$lista->codigovoto->where('created_at','>','2024-07-12 09:00:00')->where('created_at','<','2024-07-12 13:00:00')->count();
             }
-            $horario="2023-06-16 09:00:00 - 2023-06-16 13:00:00";
+            $horario="2024-07-12 09:00:00 - 2024-07-12 13:00:00";
             break;
         case 'nocturna':
             foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-16 18:00:00')->where('created_at','<','2023-06-16 20:30:00')->count();
+                $lista['votos']=$lista->codigovoto->where('created_at','>','2024-07-12 18:00:00')->where('created_at','<','2024-07-12 20:00:00')->count();
             }
-            $horario="2023-06-16 18:00:00 - 2023-06-16 20:30:00";
+            $horario="2024-07-12 18:00:00 - 2024-07-12 20:00:00";
             break;
         case 'sabado':
             foreach ($listas as $lista) {
-                $lista['votos']=$lista->codigovoto->where('created_at','>','2023-06-17 08:00:00')->where('created_at','<','2023-06-17 09:00:00')->count();
+                $lista['votos']=$lista->codigovoto->where('created_at','>','2024-07-13 08:00:00')->where('created_at','<','2024-07-13 09:00:00')->count();
             }
-            $horario="2023-06-17 08:00:00 - 2023-06-17 09:00:00";
+            $horario="2024-07-13 08:00:00 - 2024-07-13 09:00:00";
             break;
         case 'admin':
                 foreach ($listas as $lista) {
