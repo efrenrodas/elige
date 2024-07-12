@@ -109,6 +109,7 @@
               Inicio
             </a>
           </li>
+          @if (Auth::user()->rol=='admin')
           <li class="nav-item">
              <a class="nav-link {{ request()->routeIs('listas.index') ? 'active' : '' }}"
                 href="{{route('listas.index')}}">
@@ -128,12 +129,8 @@
               Codigos por carreras
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"  {{ request()->routeIs('junta.cierre') ? 'active' : '' }} href="{{route('junta.cierre')}}">
-              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-              Cierre de junta
-            </a>
-          </li>
+
+          @endif
           {{-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers" class="align-text-bottom"></span>
@@ -150,11 +147,17 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
+            <a class="nav-link"  {{ request()->routeIs('junta.cierre') ? 'active' : '' }} href="{{route('junta.cierre')}}">
+              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+              Cierre de junta
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text" class="align-text-bottom"></span>
               Resumen de votos
             </a>
-          </li>
+          </li> --}}
           {{-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text" class="align-text-bottom"></span>
