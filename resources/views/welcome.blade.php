@@ -32,9 +32,10 @@
                     <div class="card-header">
                       Elecciones - Instituto Tecnológico Universitario San Isidro
                     </div>
+                    @if ($disponible=='true')
                     <div class="card-body">
-                      <h5 class="card-title">Ingrese el código para realizar el voto</h5>
-                      <p class="card-text">ingrese el código de 5 digitos</p>
+                      <h5 class="card-title">Jornada {{$horario->nombre??''}}</h5>
+                      <p class="card-text">Ingrese el código para realizar el voto</p>
                       <div class="row">
                         <div class="col">
 
@@ -54,6 +55,12 @@
                       {{--      <a href="#" class="btn btn-primary">Vota</a> --}}
                      
                     </div>
+                    @else
+                    <div class="card-body">
+                      <h5>La jornada no esta disopnible</h5>
+                    </div>
+                    @endif
+                  
                     <div class="card-footer text-muted">
                       {{date('Y-m-d H:i:s')}}
                     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\CodigoController;
 use App\Http\Controllers\CodigovotoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ListaController;
+use App\Models\Horario;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $fechaActual=date('Y-m-d H:i:s');
+    $horario=Horario::where('horaInicio','<=',$fechaActual)->where('horaFin','>=',$fechaActual)->first();
+    #return response()->json($horario);
+    $disponible=true;
+    if (!is_null($horario)) {
+        $disponible=true;
+    }
+    return view('welcome',compact('disponible','horario'));
 })->name('welcome');
 
 Auth::routes(['register'=>true]);
