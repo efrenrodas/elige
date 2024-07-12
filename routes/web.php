@@ -23,7 +23,7 @@ Route::get('/', function () {
     $fechaActual=date('Y-m-d H:i:s');
     $horario=Horario::where('horaInicio','<=',$fechaActual)->where('horaFin','>=',$fechaActual)->first();
     #return response()->json($horario);
-    $disponible=true;
+    $disponible=false;
     if (!is_null($horario)) {
         $disponible=true;
     }
