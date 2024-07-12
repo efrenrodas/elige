@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="alert alert-danger" role="alert">
-        Codigo incorrecto <a href="{{route('wel.ini')}}" class="alert-link">Click aqui</a>.  para intentar nuevamente.
+        Codigo incorrecto <a href="{{route('welcome')}}" class="alert-link">Click aqui</a>.  para intentar nuevamente.
       </div>
 </body>
 </html>
