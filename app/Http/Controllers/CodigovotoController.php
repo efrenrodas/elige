@@ -154,7 +154,11 @@ class CodigovotoController extends Controller
             $horario='todos';
             break;
     }
-  #  return response()->json($listas);
-  return view('codigovoto.show',compact('listas','horario'));
+   //return response()->json($listas);
+   $total=0;
+   foreach ($listas as $lista) {
+    $total+=$lista->votos;
+   }
+  return view('codigovoto.show',compact('listas','horario','total'));
    }
 }

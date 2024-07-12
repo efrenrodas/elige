@@ -37,7 +37,11 @@
                                   
                                   </tr> 
                                 @endforeach
-                             
+                             <tr>
+                                <th>Total</th>
+                                <th> </th>
+                                <th>{{$total}}</th>
+                             </tr>
                               
                             </tbody>
                           </table>
