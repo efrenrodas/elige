@@ -65,7 +65,7 @@ class CodigoController extends Controller
             # code...
             $request['codigo']=Str::random(5);
             $request['idEstudiante']=$codigo->IdEstudiante;
-
+            $request['nombres']=$codigo->nombres;
             $code = Codigo::create($request->all());
         }
        

@@ -37,7 +37,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Cantidad</th>
+										<th>Cantidad Registrada</th>
 										<th>Estado</th>
 
                                         <th></th>
@@ -49,7 +49,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $curso->nombre }}</td>
-											<td>{{ $curso->cantidad }}</td>
+											<td>{{ $curso->codigo->count() }}</td>
 											<td>{{ $curso->estado=='1'?'Activo':'Inactivo' }}</td>
 
                                             <td>

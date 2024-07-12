@@ -34,7 +34,7 @@ class Codigo extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo','estado','id_curso','idEstudiante'];
+    protected $fillable = ['codigo','estado','id_curso','idEstudiante','nombres'];
 
 
     /**
